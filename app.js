@@ -141,7 +141,7 @@ app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/segwit', passportConfig.isAuthenticated, bitcoinController.getSegwit);
 app.post('/segwit', passportConfig.isAuthenticated, bitcoinController.postSegwit);
-app.get('/p2sh', bitcoinController.getP2SH, passportConfig.isAuthenticated);
+app.get('/p2sh', passportConfig.isAuthenticated, bitcoinController.getP2SH);
 app.post('/p2sh', passportConfig.isAuthenticated, bitcoinController.postP2sh);
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
 app.get('/account/verify/:token', passportConfig.isAuthenticated, userController.getVerifyEmailToken);
