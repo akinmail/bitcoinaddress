@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 P2SH multisig address
+  form(id='signup-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='n') How many Signature will this wallet support?
+      .col-md-7
+        input.form-control(type='number', name='n', id='n', placeholder='n', autofocus required)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='m') How many Signature must be present to spend bitcoin from this wallet?
+      .col-md-7
+        input.form-control(type='number', name='m', id='m', placeholder='m', autofocus, required)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='pubkeys') Public keys(Comma seperated)
+      .col-md-7
+        input.form-control(type='text', name='pubkeys', 
+        id='pubkeys', 
+        placeholder='026477115981fe981a6918a6297d9803c4dc04f328f22041bedff886bbc2962e01,02c96db2302d19b43d4c69368babace7854cc84eb9e061cde51cfa77ca4a22b8b9', required)
+    .form-group.offset-sm-3.col-md-7.pl-2
+      button.btn.btn-success(type='submit')
+        i.fas.fa-user-plus.fa-sm
+        | Generate Address
+
+  hr
+  .row
+    .col-md-6
+      h2 Generated Address
+      p Address will show here : #{address}

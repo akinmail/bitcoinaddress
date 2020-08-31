@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 Segwit
+  form(id='signup-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='seed') Seed words
+      .col-md-7
+        input.form-control(type='text', name='seed', id='seed', placeholder='seed', autofocus, autocomplete='seed', required)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='path') Derivation Path
+      .col-md-7
+        input.form-control(type='text', name='path', id='path', placeholder='path', autocomplete='path', required)
+    .form-group.offset-sm-3.col-md-7.pl-2
+      button.btn.btn-success(type='submit')
+        i.fas.fa-user-plus.fa-sm
+        | Generate Address
+
+  hr
+  .row
+    .col-md-6
+      h2 Generated Address
+      p Address will show here : #{address}
